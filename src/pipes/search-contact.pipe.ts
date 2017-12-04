@@ -29,7 +29,9 @@ export class SearchContactPipe implements PipeTransform {
 			});
 		}
 		else{
-    		return Promise.resolve(value);
+    		return Promise.resolve(value).catch(function(){
+    			console.log("promise rejected");
+			});
 		}
     }
 }

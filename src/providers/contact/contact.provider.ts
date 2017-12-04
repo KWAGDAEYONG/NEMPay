@@ -60,7 +60,9 @@ export class ContactProvider {
         return Promise.resolve( contacts );
       })
       .catch(error => {
-        return Promise.reject(error);
+        return Promise.reject(error).catch(function () {
+            console.log("promise rejected");
+        });
       });
   }
 }
