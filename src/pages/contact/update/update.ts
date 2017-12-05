@@ -42,7 +42,8 @@ export class UpdateContactPage {
      *@param address address to assign
      */
     private _createContact(address:string){
-        this.contact.searchContactName(this.owner, address).then(contacts =>{
+
+        this.contact.searchContactName(this.owner, address).then((contacts:any[]) =>{
             if(contacts.length > 0) this.alert.showContactAlreadyExists();
             else{
                 this.contact.create(this.owner, this.name, address).then(_=>{
@@ -61,7 +62,7 @@ export class UpdateContactPage {
      */
     private _updateContact(address:string){
 
-        this.contact.searchContactName(this.owner, address).then(contacts =>{
+        this.contact.searchContactName(this.owner, address).then((contacts:any[]) =>{
 
             if(contacts.length > 0 && address != this.previousAddress) this.alert.showContactAlreadyExists();
             else{

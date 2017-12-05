@@ -21,7 +21,7 @@ export class SearchContactPipe implements PipeTransform {
     transform(value: string, owner: string): any {
     	if(this.platform.is('cordova')){
 
-			return this.contact.searchContactName(owner, value).then(contacts =>{
+			return this.contact.searchContactName(owner, value).then((contacts:any[]) =>{
 				if(contacts.length > 0){
 					return contacts[0].name;
 				}
